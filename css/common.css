@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+/* 초기화 설정 */
+*, :before, :after {box-sizing: border-box;}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, code, em, img, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figure, figcaption, footer, header, hgroup, menu, nav, section, main, audio, video { margin: 0; padding: 0; }
+
+/*html5추가 시멘틱엘리먼트를 익스하위버전에서 블럭으로 인식되도록 함*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main { display: block; }
+button { cursor: pointer; /* outline: none; */ }
+
+/* 익스하위버전에서 이미지 선없애기 */
+fieldset, img { border: 0; vertical-align: top; }
+
+ol, ul { list-style: none; }
+
+/* 태그 기본 기울임꼴 제거 */
+address, em { font-style: normal; }
+strong { font-weight: normal; }
+a {
+    text-decoration: none;
+    color: #000;
+    /* 모바일 크롬, 사파리에서 클릭 시 색상 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+/* iframe으로 외부컨텐츠를 연결했을때
+외부컨텐츠안쪽내용이 우리페이지에 영향을 주지못하도록 가려줌*/
+iframe { overflow: hidden; border: 0; }
+
+/* 칸의 선을 합치기, 칸의 간격없애기, 가로를 늘려줌 */
+table { border-collapse: collapse; border-spacing: 0; width: 100%; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+
+/* 폼요소의 높이가 다를때 요소끼리 세로정렬시킴, ios 둥근모서리, 기본스타일 제거 */
+input, select, textarea, button { vertical-align: middle; margin: 0; padding: 0; border-radius: 0; -webkit-appearance: none; }
+
+/* 모바일 크롬, 사파리 텍스트 자동확대 방지*/
+body { line-height: 1.5; -webkit-text-size-adjust: none; }
+
+/* 공통스타일 */
+body, input, button, select, textarea, table { font-family: 'Noto Sans KR', '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 16px; color: #000; }
+
+/* legend,caption,메뉴제목,섹션제목 블라인드 */
+legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px; }
+
+/* float 해제 */
+.clearfix:after { content:''; display: block; clear: both; }
+
+/* 버튼 공통스타일 */
+.btn { height: 50px; font-weight: 500; border: 1px solid #30b7e8; font-family: 'Montserrat', sans-serif; color: #30b7e8; transition: color 0.2s, background-color 0.2s; }
+.btn:hover { color: #fff; background: #30b7e8; }
+
+/* 메뉴 타이틀 공통 */
+.tit_area { position: absolute; top: 0; left: 0; line-height: 100px; z-index: 100; transform: rotate(90deg); transform-origin: 0% 100%; }
+.tit_area h1 { font-size: 60px; color: rgba(0, 0, 0, 0.1); font-weight: 700; text-align: center; font-family: 'Montserrat', sans-serif; }
+#container section {position: relative;}
+
+#wrap { min-width: 320px; position: relative; /* overflow-x: hidden; */}
+
+#header { position: fixed; width: 100%; min-width: 320px; z-index: 9999; transition: all 0.3s; }
+#header.scroll {background: #fff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+#header.scroll .gnb .depth1>li>a {color: #000; transition: color 0.3s;}
+
+#header .gnb { text-align: right; height: 50px; margin-right: 100px;}
+#header .gnb .depth1 {display: inline-block;}
+#header .gnb .depth1>li {float: left; padding: 0 15px;}
+#header .gnb .depth1>li>a { display: block; font-weight: 500; line-height: 50px; color: #fff; transition: color 0.3s; font-family: 'Montserrat', sans-serif; position: relative;}
+#header .gnb .depth1>li>a:after { content: ''; position: absolute; left: 0; bottom: 14px; width: 0; height: 8px; background-color: rgba(0, 0, 0, 0.1); transform: skew(-20deg); transition: all 0.4s; z-index: -1; }
+#header .gnb .depth1>li.active>a:after {width: 100%;}
+
+/* 인트로 */
+#container .intro {height: 100vh;}
+.intro .video_wrap { padding: 0; width: 100%; height: 100vh; overflow: hidden; position: absolute; }
+.intro .video_wrap .intro_video { z-index: -1; width: 100%; position: absolute; left:0; top:0; }
+@media (max-aspect-ratio: 16/9) { .intro .video_wrap .intro_video { width: auto; height: 100vh; } }
+
+.intro .txt_wrap { position: absolute; left: 50%; top:0; color: #fff; transform: translateY(50vh);}
+.intro .txt_wrap h2 {font-size: 3.5rem; font-weight: 500; line-height: 1;}
+.intro .txt_wrap h2.thin {font-size: 4rem; font-weight: 100;}
+.intro .txt_box {padding-top: 10px;}
+.intro .txt_box span { font-size: 1.1rem;}
+.blink { animation: blink 0.5s infinite; font-size: 2rem; }
+@keyframes blink { to { opacity: 0; } }
+
+/* about */
+.about.on .keywords li:nth-child(1) {transform: translateY(0); opacity:1; transition: transform 1s 0.2s, opacity 1s 0.2s;}
+.about.on .keywords li:nth-child(2) {transform: translateY(0); opacity:1; transition: transform 1s 0.4s, opacity 1s 0.4s;}
+.about.on .keywords li:nth-child(3) {transform: translateY(0); opacity:1; transition: transform 1s 0.6s, opacity 1s 0.6s;}
+.about.on .about_me {transform: translateY(0); opacity:1; transition: transform 1s 0.8s, opacity 1s 0.8s;}
+.about .about_inner { padding: 100px 0; margin: 0 100px;}
+.about .keywords li { float: left; padding: 20px; text-align: center; width: calc(100% / 3); }
+.about .keywords li + li { border-left: 1px solid rgba(0, 0, 0, 0.3);}
+.about .keywords li h3 { font-size: 20px; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 20px; }
+.about .keywords li:nth-child(1) {transform: translateY(100px); opacity:0;}
+.about .keywords li:nth-child(2) {transform: translateY(100px); opacity:0;}
+.about .keywords li:nth-child(3) {transform: translateY(100px); opacity:0;}
+
+.about .about_me { display: flex; justify-content: center; padding-top: 50px; transform: translateY(100px); opacity:0;}
+.about .about_me .img_wrap { box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.3); }
+.about .about_me .img_wrap img {height: 380px;}
+.about .about_me .img_wrap p { text-align: center; font-size: 14px; padding: 10px 0;}
+.about_me .about_data {padding: 50px;}
+.about_me .about_data table td {height: 55px; font-size: 18px;}
+.about_me .about_data table .about_info {padding-left: 40px; color: #555; font-weight: 300; word-break: keep-all;}
+.about_me .about_data table span {font-family:'Montserrat', sans-serif; font-weight: 600;}
+
+/* 스킬 */
+.skills.on .skills_inner .development { transform: translateY(0); opacity:1; transition: transform 1s 0.2s, opacity 1s 0.2s;}
+.skills.on .skills_inner .design { transform: translateY(0); opacity:1; transition: transform 1s 0.4s, opacity 1s 0.4s;}
+.skills {background: #f9f9f9; padding: 100px 0; text-align: center;}
+.skills .skills_inner { display: flex; width: calc(100% - 20%); margin: 0 auto; justify-content: space-evenly;}
+.skills .skills_inner .part { flex: 0 1 40%; height: 500px; padding: 30px; box-sizing: border-box; background: #fff; box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.3);}
+.skills .skills_inner .development { transform: translateY(100px); opacity:0;}
+
+.skills .skills_inner .tit { position: relative; padding: 80px 0 40px; text-align: center; font-weight: 500; font-family: 'Montserrat', sans-serif; }
+.skills .skills_inner .tit:before { content:''; position: absolute; left: 50%; top: 20px; margin-left: -18px; background: url(../images/icon_engineering.png) no-repeat; background-size: 36px; width: 36px; height: 36px; }
+.skills .skills_inner .design {transform: translateY(100px); opacity:0;}
+.skills .skills_inner .design .tit:before { background-image: url(../images/icon_design.png); }
+
+.skills .skills_inner ul>li { font-weight: 300; margin-bottom: 20px; padding-left: 15px; letter-spacing: 0.025em; text-align: left; position: relative;}
+.skills .skills_inner ul>li:before { content: ''; position: absolute; left: 0; top: 50%; width: 4px; height: 4px; border-radius: 50%; background: #333; }
+
+/* 포트폴리오 */
+#container .portfolio { padding: 100px 0; position: relative;overflow: hidden;}
+.portfolio .port {display: flex; padding: 50px;}
+.portfolio .port.on .desc {transform: translateX(0); opacity:1; transition: all 1s 0.2s;}
+.portfolio .port.on .img_box {transform: translateX(0); opacity:1; transition: all 1s 0.2s;}
+
+.portfolio .desc { flex: 0 1 50%; text-align: right; margin-right: 100px; transform: translateX(100px); opacity:0; }
+.portfolio .port02 .desc {text-align: left; margin:0 0 0 100px; transform: translateX(-100px); opacity:0;}
+.portfolio .port02 .img_box {transform: translateX(100px);}
+.portfolio .desc .numbering {font-size: 24px; font-family: 'Montserrat', sans-serif; }
+.portfolio .desc .category {font-size: 24px; font-weight: 500; letter-spacing: -0.05em; font-family: 'Montserrat', sans-serif;}
+.portfolio .desc .site_tit { font-size: 42px; font-weight: 700; font-family: 'Montserrat', sans-serif;}
+.portfolio .desc .site_txt {margin-top: 6px; font-weight: 300; color: #333; }
+.portfolio .desc .page_txt {margin-top: 6px; color: #333; font-size: 18px; font-family: 'Montserrat', sans-serif;}
+
+.portfolio .img_box { flex: 0 1 50%; height: 100%; transform: translateX(-100px); opacity:0;}
+.portfolio .img_box img {width: 100%;}
+.portfolio .port03 .img_box {text-align: center;}
+.portfolio .port03 .img_box img {width: 40%;}
+
+.portfolio .notice {font-size: 12px; margin-top: 6px; word-break: keep-all;}
+
+.portfolio .btn_wrap {margin-top: 10px;}
+.portfolio .btn_wrap .btn { display: inline-block; text-align: center; width: 130px; line-height: 50px; font-size: 14px; padding: 0 10px; margin: 10px 0 0 6px; }
+
+/* contact */
+.contact { background: url(../images/contact.jpg) no-repeat 0 40%; background-size: cover; overflow: hidden; height: 700px;}
+.contact .contact_inner { padding: 50px 0; width: 500px; margin: 100px auto; background: rgba(255, 255, 255, 0.2); text-align: center; }
+.contact .contact_inner h1 {font-size: 42px; font-weight: 700; padding-bottom: 20px;}
+.contact .contact_inner p {font-size: 18px; padding: 10px;}
+
+#footer .footer_inner { background: #999; text-align: center; font-size: 14px; line-height: 2; padding: 20px 0; color: #fff; font-weight: 300; }
+
+.btn_copy { border: none; background: url(../images/icon_email_copy.png) no-repeat; background-size: 40px; height: 40px; padding-left: 46px; margin-top:20px; font-size: 14px; }
+#textbox_url { /* display: none; */ position: absolute; top: 0; left: 0; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; }
+
+.m_btn_menu {display: none;}
+.m_gnb {display: none;}
+
+/* 태블릿분기점 */
+@media (max-width: 1200px) {
+    #header .gnb {display: none;}
+
+    /* 메뉴버튼 */
+    .m_btn_menu {display: block; cursor: pointer; position: fixed; right: 50px; top: 50px; width: 34px; height: 24px; transition: all 0.2s ease-in-out; z-index: 999; }
+    .m_btn_menu span { content: '메뉴 열기'; background-color: #000; display: block; height: 4px; position: absolute; width: 100%; border-radius: 3px; transition: all 0.2s ease-in-out; }
+    .m_btn_menu span:before, .m_btn_menu span:after { position: absolute; content: ''; background-color: #000; display: block; height: 4px; width: 100%; border-radius: 3px; transition: all .2s ease-in-out; }
+    .m_btn_menu span:before {margin-top: -10px;}
+    .m_btn_menu span:after {margin-top: 10px;}
+    .m_btn_menu.on span {background: transparent;}
+    .m_btn_menu.on span:before {transform: translateY(10px) rotateZ(135deg);}
+    .m_btn_menu.on span:after {transform: translateY(-10px) rotateZ(-135deg);}
+
+    .m_gnb.open {transform: translateX(0); }
+    .m_gnb { display: block; position: fixed; top: 0; right: 0; width: 30%; min-width: 280px; height: 100vh; background: #fff; overflow: auto; transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1); transform: translateX(100%); z-index: 100; }
+    .m_gnb .m_depth1 { padding:100px 50px 0; }
+    .m_gnb .m_depth1 li + li {margin-top: 10px;}
+    .m_gnb .m_depth1>li>a { display: inline-block; font-size: 30px; font-weight: 700; white-space: nowrap; position: relative; }
+    .m_gnb .m_depth1>li.active>a:after {width: 100%;}
+    .m_gnb .m_depth1>li:hover>a:after {width: 100%;}
+    .m_gnb .m_depth1>li>a:after { content:''; position: absolute; left:0; bottom: 10px; width: 0; height: 10px; background-color: #ccc; transform: skew(-20deg); transition: all 0.4s; z-index:-1; }
+    
+    .tit_area {left: 50%; transform: translateX(-50%); transform-origin: 0;}
+    .tit_area h1 {font-size: 50px; color: #000;}
+
+    /* about */
+    .about .keywords li {width: 100%;}
+    .about .keywords li + li {border-top: 1px solid rgba(0, 0, 0, 0.3); border-left: none;}
+    .about .about_inner {margin: 0 30px;}
+    .about .about_me {flex-direction: column; align-items: center;}
+    .about .about_me .img_wrap img {height: 300px;}
+    .about_me .about_data table td {font-size: 16px;}
+
+    /* skills */
+    .skills .skills_inner {flex-direction: column;}
+    .skills .skills_inner .design {margin-top: 50px;}
+
+    /* portfolio */
+    .portfolio .port {flex-direction: column;}
+    .portfolio .desc {text-align: left; margin: 0;}
+    .portfolio .port02 .desc {margin: 0;}
+    .portfolio .port01 .desc, .portfolio .port03 .desc { order: 1; }
+    .portfolio .img_box {width: calc(100% - 20%); margin: 0 auto;}
+
+    /* contact */
+    .contact .contact_inner {width: 400px;}
+    .contact .contact_inner p {font-size: 16px;}
+}
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+    .m_btn_menu {right: 30px; top: 30px;}
+
+    .m_gnb {min-width: 200px;}
+    .m_gnb .m_depth1>li>a {font-size: 22px;}
+
+    /* 인트로 */
+    .intro .txt_wrap {left: 15%;}
+    .intro .txt_wrap h2 {font-size: 2.5rem;}
+    .intro .txt_wrap h2.thin {font-size: 3rem;}
+    .intro .txt_box span {font-size: 0.9rem;}
+
+    /* about */
+    .tit_area h1 {font-size: 30px;}
+    .about .keywords li h3 {font-size: 18px;}
+    .about .keywords li p {font-size: 14px;}
+    .about .about_me {padding-top: 20px;}
+    .about .about_me .img_wrap img {height: 240px;}
+    .about_me .about_data {padding: 10px;}
+    .about_me .about_data table td {font-size: 14px;}
+    .about_me .about_data table .about_info {padding: 0 0 10px 20px;}
+
+    /* skills */
+    .skills .skills_inner ul>li {font-size: 14px; margin-bottom: 14px;}
+
+    /* portfolio */
+    .portfolio .desc .numbering, .portfolio .desc .category { font-size: 20px; }
+    .portfolio .desc .site_tit {font-size: 30px;}
+    .portfolio .desc .site_txt {font-size: 14px;}
+    .portfolio .desc .page_txt {font-size: 14px;}
+    .portfolio .port {padding: 30px 20px;}
+
+    .btn {height: 40px;}
+    .portfolio .btn_wrap .btn {line-height: 40px; padding: 0 5px;}
+
+    .contact .contact_inner {width: 300px;}
+    .contact .contact_inner h1 {font-size: 30px;}
+    .contact .contact_inner p {font-size: 14px;}
+
+    #footer .footer_inner {font-size: 12px; word-break: keep-all; padding: 20px 10px;}
+}

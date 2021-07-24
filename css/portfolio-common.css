@@ -1,0 +1,59 @@
+@charset "UFT-8";
+
+* { padding:0; margin: 0; }
+
+body { font-family: 'Montserrat', 'Noto Sans KR', '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', sans-serif; line-height: 1.5; color: #000; font-weight: 400; font-size: 1rem; }
+
+a{ text-decoration: none; color: #000; -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1); }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+
+/* 텍스트 공통 */
+.txt_blue {color: #30b7e8;}
+
+/* portfolio */
+#portfolio_tit { background: #f1f1f1;}
+#portfolio_tit .img_box { max-width: 980px; padding: 0 20px; margin: 0 auto;}
+#portfolio_tit .img_box img { width: 100%;}
+#portfolio_tit .m_hollys { width: 100%; text-align: center;}
+#portfolio_tit .m_hollys img { width: auto;}
+
+#portfolio_tit .tit_wrap {padding: 0 50px 50px;}
+#portfolio_tit .tit_wrap span {font-size: 24px;}
+#portfolio_tit .tit_wrap h2 { font-size: 42px; font-weight: 700;}
+#portfolio_tit .tit_wrap p {font-size: 30px;}
+
+#portfolio_txt {padding: 0 50px; display: flex; justify-content: space-between;}
+#portfolio_txt .left {padding: 10px;}
+#portfolio_txt .right {padding: 10px;}
+#portfolio_txt .left .btn { display: inline-block; line-height: 50px; height: 50px; font-weight: 500; color: #30b7e8; border: 1px solid #30b7e8; padding: 0 10px; margin: 20px 5px 0; transition: color 0.2s, background-color 0.2s; }
+#portfolio_txt .left .btn:hover { color: #fff; background: #30b7e8; }
+
+#portfolio_txt .left .hollys_desc {padding-bottom: 20px;}
+
+#portfolio_txt span { display: inline-block; font-size: 20px; padding: 20px 0; font-weight: 500; }
+#portfolio_txt ul li { list-style: inside;}
+#portfolio_txt ul li + li {padding-top: 5px;}
+
+.btn_wrap { text-align: center; padding: 50px 0;}
+.btn_wrap .btn_back {display: inline-block; width: 150px; border:1px solid #000; line-height: 50px; height: 50px; text-align: center;}
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px) {
+  #portfolio_txt {flex-wrap: wrap;}
+}
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  #portfolio_tit .tit_wrap span {font-size: 20px;}
+  #portfolio_tit .tit_wrap h2 {font-size: 30px;}
+  #portfolio_tit .tit_wrap p {font-size: 20px;}
+  #portfolio_txt {padding: 0 20px;}
+  #portfolio_txt ul li {font-size: 14px;}
+
+  #portfolio_txt .left .hollys_desc {font-size: 14px;}
+  #portfolio_txt .left .btn {line-height:40px; height: 40px;}
+  #portfolio_txt .right p {font-size: 14px;}
+
+  .btn_wrap .btn_back {line-height:40px; height: 40px;}
+}
