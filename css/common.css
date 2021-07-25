@@ -90,7 +90,7 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
 .about.on .keywords li:nth-child(3) {transform: translateY(0); opacity:1; transition: transform 1s 0.6s, opacity 1s 0.6s;}
 .about.on .about_me {transform: translateY(0); opacity:1; transition: transform 1s 0.8s, opacity 1s 0.8s;}
 .about .about_inner { padding: 100px 0; margin: 0 100px;}
-.about .keywords li { float: left; padding: 20px; text-align: center; width: calc(100% / 3); }
+.about .keywords li { float: left; padding: 20px; text-align: center; width: calc(100% / 3);}
 .about .keywords li + li { border-left: 1px solid rgba(0, 0, 0, 0.3);}
 .about .keywords li h3 { font-size: 20px; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 20px; }
 .about .keywords li:nth-child(1) {transform: translateY(100px); opacity:0;}
@@ -177,7 +177,7 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
 
     .m_gnb.open {transform: translateX(0); }
     .m_gnb { display: block; position: fixed; top: 0; right: 0; width: 30%; min-width: 280px; height: 100vh; background: #fff; overflow: auto; transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1); transform: translateX(100%); z-index: 100; }
-    .m_gnb .m_depth1 { padding:100px 50px 0; }
+    .m_gnb .m_depth1 { padding:100px 50px 0; z-index:0;}
     .m_gnb .m_depth1 li + li {margin-top: 10px;}
     .m_gnb .m_depth1>li>a { display: inline-block; font-size: 30px; font-weight: 700; white-space: nowrap; position: relative; }
     .m_gnb .m_depth1>li.active>a:after {width: 100%;}
@@ -188,6 +188,7 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
     .tit_area h1 {font-size: 50px; color: #000;}
 
     /* about */
+
     .about .keywords li {width: 100%;}
     .about .keywords li + li {border-top: 1px solid rgba(0, 0, 0, 0.3); border-left: none;}
     .about .about_inner {margin: 0 30px;}
