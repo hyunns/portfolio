@@ -105,6 +105,8 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
 .about_me .about_data table td {height: 55px; font-size: 18px;}
 .about_me .about_data table .about_info {padding-left: 40px; color: #555; font-weight: 300; word-break: keep-all;}
 .about_me .about_data table span {font-family:'Montserrat', sans-serif; font-weight: 600;}
+.about_me .about_data .resume_wrap {text-align: center; margin-top: 20px;}
+.about_me .about_data .btn_resume { display: inline-block; padding: 0 20px; line-height: 40px; border: 1px solid #333; color: #333; border-radius: 20px;}
 
 /* 스킬 */
 .skills.on .skills_inner .development { transform: translateY(0); opacity:1; transition: transform 1s 0.2s, opacity 1s 0.2s;}
@@ -234,6 +236,7 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
     .about_me .about_data {padding: 10px;}
     .about_me .about_data table td {font-size: 14px;}
     .about_me .about_data table .about_info {padding: 0 0 10px 20px;}
+    .about_me .about_data .btn_resume {font-size: 14px;}
 
     /* skills */
     .skills .skills_inner ul>li {font-size: 14px; margin-bottom: 14px;}
