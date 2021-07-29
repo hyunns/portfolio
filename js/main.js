@@ -26,7 +26,8 @@
     });
 
     scrollSec();
-    
+
+    // 스크롤시 해당 메뉴 밑줄 활성화
     function scrollSec() {
         let depth1Li= $('#header .gnb .depth1>li');
         let secOffset = [];
@@ -48,7 +49,7 @@
     }
 
     // intro 타이핑 효과
-    const content = "안녕하세요.\n항상 새롭게 도전하는, 열정 가득한\n신입 웹 퍼블리셔 유아현입니다 :)";
+    const content = "안녕하세요.\n열정을 쏟을 준비가 된\n신입 웹 퍼블리셔 유아현입니다 :)";
     const introTxt = $('.intro .txt_box .txt');
     let i = 0;
 
