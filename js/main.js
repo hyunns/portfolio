@@ -50,7 +50,7 @@
 
     // intro 타이핑 효과
     const content = "안녕하세요.\n열정을 쏟을 준비가 된\n신입 웹 퍼블리셔 유아현입니다 :)";
-    const introTxt = $('.intro .txt_box .txt');
+    const introTxt = $('.section01 .txt_box .txt');
     let i = 0;
 
     function typing() {
@@ -65,18 +65,18 @@
     $(window).scroll(function() {
         sc = $(window).scrollTop() + $(window).height() / 1.5;
 
-        if(sc >= $('.about').offset().top && sc <= $('.skills').offset().top) {
-            $('.about').addClass('on');
-        } else if(sc >= $('.skills').offset().top && sc <= $('.portfolio').offset().top) {
-            $('.skills').addClass('on');
+        if(sc >= $('.section02').offset().top && sc <= $('.section03').offset().top) {
+            $('.section02').addClass('on');
+        } else if(sc >= $('.section03').offset().top && sc <= $('.section04').offset().top) {
+            $('.section03').addClass('on');
         }
 
-        if (sc >= $('.portfolio .port01').offset().top && sc <= $('.portfolio .port02').offset().top) {
-            $('.portfolio .port01').addClass('on');
-        } else if (sc >= $('.portfolio .port02').offset().top && sc <= $('.portfolio .port03').offset().top) {
-            $('.portfolio .port02').addClass('on');
-        } else if (sc >= $('.portfolio .port03').offset().top && sc <= $('.contact').offset().top) {
-            $('.portfolio .port03').addClass('on');
+        if (sc >= $('.section04 .port01').offset().top && sc <= $('.section04 .port02').offset().top) {
+            $('.section04 .port01').addClass('on');
+        } else if (sc >= $('.section04 .port02').offset().top && sc <= $('.section04 .port03').offset().top) {
+            $('.section04 .port02').addClass('on');
+        } else if (sc >= $('.section04 .port03').offset().top && sc <= $('.section05').offset().top) {
+            $('.section04 .port03').addClass('on');
         }
     }).trigger('scroll');
 
