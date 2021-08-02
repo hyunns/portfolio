@@ -255,6 +255,7 @@ legend, caption, .blind { position: absolute; overflow: hidden; clip: rect(0 0 0
 
     /* skills */
     .section03 .skills_inner ul>li {font-size: 14px; margin-bottom: 14px;}
+    .section03 .skills_inner .part {width: 350px; padding: 15px; height: auto;}
 
     /* portfolio */
     .section04 .desc .numbering, .section04 .desc .category { font-size: 20px; }
